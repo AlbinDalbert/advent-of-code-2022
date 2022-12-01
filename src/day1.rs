@@ -1,6 +1,3 @@
-use std::fs::read;
-
-use cli_toolbox::*;
 use crate::reading;
 
 pub fn day1() {
