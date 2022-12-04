@@ -1,8 +1,12 @@
+use std::vec;
+
 use crate::reading;
+
 
 pub fn day3() {
     let s = reading::get_content_from_path("./input/day3.txt");
     let lines = s.lines();
+    let lines2 = lines.clone();
 
     let mut sum = 0;
 
@@ -28,6 +32,40 @@ pub fn day3() {
     }
 
     println!("Part 1 Answer: {}", sum);
+
+    let mut sum2 = 0;
+    let mut group: Vec<&str> = Vec::new();
+
+    for li in lines2 {
+        
+        group.push(li);
+
+        if group.len() > 2 {
+
+            sum2 += get_priority_of_char(find_group_badge(group.clone()));
+            group = Vec::new();
+            
+        }
+        
+    }
+    println!("Part 2 Answer: {}", sum2);
+
+}
+
+fn find_group_badge(mut group: Vec<&str>) -> char {
+    let str1 = group.pop().unwrap();
+    let str2 = group.pop().unwrap();
+    let str3 = group.pop().unwrap();
+    for c1 in str1.chars() {
+        for c2 in str2.chars() {
+            for c3 in str3.chars() {
+                if c1 == c2 && c1 == c3 {
+                    return c1;
+                }
+            }
+        }
+    }
+    '\n'
 }
 
 fn check_for_match(str1: &str, str2: &str) -> char {
