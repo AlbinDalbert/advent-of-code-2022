@@ -91,13 +91,9 @@ fn init_stacks(lines: &mut Lines) -> Vec<Vec<char>> {
     let lin = lines.clone().nth(0).unwrap().len();
     let num_of_stacks = (lin+1) / 4;
 
-    println!("num of stacks {num_of_stacks}");
-
     for _ in 0..num_of_stacks {
         stacks.push(Vec::new());
     }
-
-    println!("stacks length {}", stacks.len());
 
     for li in lines {
         if li.is_empty() {

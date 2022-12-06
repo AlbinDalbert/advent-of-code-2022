@@ -6,6 +6,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
 
 fn main() {
     let mut sys = system::System::new("advent of code".to_string(), None, None);
@@ -16,6 +17,7 @@ fn main() {
     sys.add_program("day 3".to_string(), day3::day3, None);
     sys.add_program("day 4".to_string(), day4::day4, None);
     sys.add_program("day 5".to_string(), day5::day5, None);
+    sys.add_program("day 6".to_string(), day6::day6, None);
 
     loop {
         sys.menu();
